@@ -1,0 +1,60 @@
+.course {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.course-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}
+.course-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.course-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: large;
+}
+
+.course-info p {
+  margin: 5px 0;
+}
+
+.course-link {
+  display: block;
+  margin-top: 10px;
+  color: blue;
+  text-decoration: none;
+}
+.course-link:hover {
+  text-decoration: underline;
+}
+
+.semester-selector {
+  margin-bottom: 16px;
+}
+
+.semester-selector label {
+  margin-right: 8px;
+  font-weight: bold;
+}
+
+.semester-selector select {
+  padding: 4px;
+  font-size: 16px;
+}
+
+.course-title {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 3em; /* Khoảng chiều cao tối đa cho 2 dòng */
+  line-height: 1.5em; /* Khoảng cách giữa các dòng */
+}

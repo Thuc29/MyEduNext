@@ -1,0 +1,23 @@
+/* App.css */
+
+.menu-list {
+  margin-top: 20px;
+}
+
+.menu-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.menu-list ul li {
+  margin-bottom: 10px;
+}
+
+.menu-list ul li a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.menu-list ul li a:hover {
+  text-decoration: underline;
+}
