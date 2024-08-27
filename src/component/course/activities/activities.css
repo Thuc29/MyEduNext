@@ -1,0 +1,10 @@
+.text-get {
+     appearance: none;
+     font-family: "Be Vietnam Pro", sans-serif;
+     font-weight: 500;
+     font-size: 0.875rem;
+     line-height: 1.75;
+     text-transform: uppercase;
+     min-width: 64px;
+     color: rgb(255, 255, 255);
+}

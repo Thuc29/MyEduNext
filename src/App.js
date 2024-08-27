@@ -2,16 +2,20 @@ import React, { useState } from "react";
 import "../src/App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { Layout, Button, theme } from "antd";
+import { Layout, Button, theme, Switch } from "antd";
 import { MenuUnfoldOutlined, MenuFoldOutlined } from "@ant-design/icons";
 import LoginForm from "./login/Login";
-import Logo from "./home/sidebar/logo/Logo";
-import MenuList from "./home/sidebar/menu/Menu";
-import ToggleButton from "./home/sidebar/toggleButtun/ToggleButton";
-import Home from "./home/content/Home";
-import Faq from "./home/faq/Faq";
-import SupportModal from "./home/support/Support";
-// import Assignment from "./home/assignment/Assignment";
+import Logo from "./component/sidebar/logo/Logo";
+import MenuList from "./component/sidebar/menu/Menu";
+import ToggleButton from "./component/sidebar/toggleButtun/ToggleButton";
+import Home from "./component/home/Home";
+import Faq from "./component/sidebar/faq/Faq";
+import SupportModal from "./component/sidebar/support/Support";
+import Assignments from "./component/sidebar/assignment/Assignment";
+import CourseControls from "./component/course/FormSlot";
+import Materials from "./component/course/matrrials/Materials";
+import Assign from "./component/course/assign/Assign";
+import Activities from "./component/course/activities/Activities";
 
 const { Sider, Content, Header } = Layout;
 
@@ -29,20 +33,12 @@ function App() {
   const toggleTheme = () => {
     setDarkTheme(!darkTheme);
   };
-
   //support
-  const handleSupportOk = () => {
-    setIsSupportModalVisible(false);
-  };
-
   const handleSupportCancel = () => {
     setIsSupportModalVisible(false);
   };
-
   // Faqs
-  const handleFaqOk = () => {
-    setIsFaqModalVisible(false);
-  };
+
 
   const handleFaqCancel = () => {
     setIsFaqModalVisible(false);
@@ -58,68 +54,64 @@ function App() {
     setSelectedMenu(key);
   };
 
+  const renderContent = () => {
+    switch (selectedMenu) {
+      case "home":
+        return <Home />;
+      case "assignments":
+        return <Assignments />;
+      default:
+        return <Home />;
+    }
+  };
+
   return (
     <Router>
       <Routes>
         <Route path="/" element={<LoginForm />} />
-        <Route
-          path="/home"
-          element={
-            <Layout style={{ minHeight: "100vh" }}>
-              <Sider
-                collapsed={collapse}
-                theme={darkTheme ? "dark" : "light"}
-                className="sidebar"
-              >
-                <Logo />
-
-                <MenuList
-                  darkTheme={darkTheme}
-                  setSelectedMenu={setSelectedMenu}
-                  handleMenuClick={handleMenuClick}
+        <Route path="/course/:courseId" element={<CourseControls />} /> 
+        <Route path="/material/:courseId" element={<Materials/>} />
+        <Route path="/assignment/:courseId" element={<Assign/>} />
+        <Route path="/activity/:courseId" element={<Activities/>} />
+        <Route path="/home" element={
+          <Layout style={{ minHeight: "100vh" }}>
+            <Sider collapsed={collapse} theme={darkTheme ? "dark" : "light"}
+              className="sidebar">
+              <Logo />
+              <MenuList
+                darkTheme={darkTheme}
+                setSelectedMenu={setSelectedMenu}
+                handleMenuClick={handleMenuClick}
+              />
+              <ToggleButton darkTheme={darkTheme} toggleTheme={toggleTheme} />
+            </Sider>
+            <Layout>
+              <Header style={{ padding: "0", height: "45px", background: colorBgContainer }}>
+                <Button
+                  type="text"
+                  className="toggle"
+                  onClick={() => setCollapse(!collapse)}
+                  icon={
+                    collapse ? <MenuFoldOutlined /> : <MenuUnfoldOutlined />} />
+              </Header>
+              <Content style={{ padding: "24px" }}>
+                <Home
+                  selectedMenu={selectedMenu}
                 />
-                <ToggleButton darkTheme={darkTheme} toggleTheme={toggleTheme} />
-              </Sider>
-              <Layout>
-                <Header
-                  style={{
-                    padding: "0",
-                    height: "45px",
-                    background: colorBgContainer,
-                  }}
-                >
-                  <Button
-                    type="text"
-                    className="toggle"
-                    onClick={() => setCollapse(!collapse)}
-                    icon={
-                      collapse ? <MenuFoldOutlined /> : <MenuUnfoldOutlined />
-                    }
-                  />
-                </Header>
-                <Content style={{ padding: "24px" }}>
-                  <Home
-                    selectedMenu={selectedMenu}
-                    // //support
-                    // isSupportModalVisible={isSupportModalVisible}
-                    // handleSupportOk={handleSupportOk}
-                    // handleSupportCancel={handleSupportCancel}
-                    // // faq
-                    // isFaqModalVisible={isFaqModalVisible}
-                    // handleFaqOk={handleFaqOk}
-                    // handleFaqCancel={handleFaqCancel}
-                  />
-                </Content>
-              </Layout>
+                {renderContent()}
+                 <Faq show={isFaqModalVisible} handleClose={handleFaqCancel} />
+                <SupportModal
+                  show={isSupportModalVisible}
+                  handleClose={handleSupportCancel}
+                />
+              </Content>
             </Layout>
-          }
+          </Layout>
+        }
         />
+        
       </Routes>
-      <Faq show={isFaqModalVisible} handleClose={handleFaqCancel} />
-      <SupportModal
-        show={isSupportModalVisible}
-        handleClose={handleSupportCancel}
-      />
+      
     </Router>
   );
 }

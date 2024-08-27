@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
-import "../faq/faq.css";
+import "./faq.css";
 
 function Faq({ show, handleClose }) {
   return (

@@ -29,6 +29,7 @@ const Logo = () => {
     localStorage.removeItem("userToken");
     navigate("/");
   };
+
   return (
     <>
       <div className="logo">
@@ -36,8 +37,9 @@ const Logo = () => {
           <img
             style={{ width: "100%" }}
             src="./assets/logo_fpt.png"
+            alt="FPT Logo"
             id="FptLogo"
-          ></img>
+          />
         </div>
       </div>
       <div className="user-container" style={{ width: "100%" }}>

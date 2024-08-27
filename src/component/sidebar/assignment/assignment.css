@@ -1,5 +1,6 @@
 .assignment-card {
-  flex: 1 1 300px; /* Adjust the width of the cards */
+  flex: 1 1 300px;
+  /* Adjust the width of the cards */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -14,11 +15,20 @@
 
 .assignment-title {
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
   font-size: large;
   text-overflow: ellipsis;
-  max-height: 1.5em; /* Khoảng chiều cao tối đa cho 2 dòng */
-  line-height: 1.5em; /* Khoảng cách giữa các dòng */
+  max-height: 1.5em;
+  /* Khoảng chiều cao tối đa cho 2 dòng */
+  line-height: 1.5em;
+  /* Khoảng cách giữa các dòng */
+}
+
+.pagination button.active {
+  background-color: #ffffff;
+  color: rgb(119, 119, 119);
+
+
 }

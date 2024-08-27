@@ -1,0 +1,96 @@
+.fs-10 {
+    font-size: 0.675rem;
+    font-weight: 500;
+}
+
+.label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #0078d4;
+    transition: all .2s ease-in-out;
+}
+
+.w-100 {
+    font-size: 14px;
+    font-weight: 500;
+    color: #f9f6f6;
+}
+
+.auto {
+    margin: 0px;
+    font-family: "Be Vietnam Pro", sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.form-select {
+    padding: 0.375rem 1.25rem 0.375rem 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.slot {
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: 24px;
+    padding: 4px 12px;
+    background: #377dff33;
+    color: #0078d4;
+    font-weight: 600;
+    margin-right: 4px;
+}
+
+.slot-card {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+.scroll-container {
+    height: 500px;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.scroll-container::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, and Opera */
+}
+
+
+.slot-title {
+    font-size: 0.875rem;
+    line-height: 1.43;
+}
+
+.container {
+    margin-left: 50px;
+    max-width: 92%;
+}
+
+.paging-filter {
+
+    margin: 20px;
+    position: relative;
+}
+
+.paging-filter {
+    font-size: 14px;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+.paging-filter-slot {
+    margin: 1 !important;
+}
+
+.button {
+    border: 1px solid #000000;
+    margin-right: 3%;
+}

@@ -7,22 +7,13 @@
 .course-card {
   border: 1px solid #ccc;
   border-radius: 8px;
-  padding: 20px;
-  width: 300px;
+  padding: 20px 20px 10px 20px;
+  width: 280px;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
 }
+
 .course-card:hover {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.course-title {
-  font-weight: bold;
-  margin-bottom: 10px;
-  font-size: large;
-}
-
-.course-info p {
-  margin: 5px 0;
 }
 
 .course-link {
@@ -31,6 +22,7 @@
   color: blue;
   text-decoration: none;
 }
+
 .course-link:hover {
   text-decoration: underline;
 }
@@ -50,11 +42,37 @@
 }
 
 .course-title {
+  color: #111;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-height: 3em; /* Khoảng chiều cao tối đa cho 2 dòng */
-  line-height: 1.5em; /* Khoảng cách giữa các dòng */
+}
+
+.course-info p {
+  margin: 0px;
+  font-size: 14px;
+  padding: 3px 0;
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+  color: #666;
+}
+
+.course-title a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.empty-component {
+  text-align: center;
+}
+
+.empty-component img {
+  width: 200px;
 }

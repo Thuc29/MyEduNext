@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
-import "../support/support.css";
+import "./support.css";
 
 function SupportModal({ show, handleClose }) {
   return (
